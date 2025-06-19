@@ -52,7 +52,6 @@ export const getAlbumsByUser = async (
     }
 
     const { userId } = value;
-
     const albums = await getAlbumsByUserId(userId);
 
     res.status(200).send(albums);
@@ -72,21 +71,14 @@ export const updateAlbum = async (
     const data = { id: parseInt(params.id), title: body.title as string };
     const { error, value } = updateAlbumSchema.validate(data);
     if (error) {
-      console.log(error);
       throw new BadRequestError('Invalid fields');
     }
 
     const { id, title } = value;
-
-    console.log('updatedAlbum', value);
-
     const updatedAlbum = await updateAlbumService(id, title);
-
-    console.log('updatedAlbum', updatedAlbum);
 
     res.status(200).send(updatedAlbum);
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
@@ -100,27 +92,19 @@ export const deleteAlbum = async (
 
   try {
     const data = { id: parseInt(params.id) };
-    console.log('data', data);
+
     const { error, value } = deleteAlbumSchema.validate(data);
     if (error) {
-      console.log('Error', error);
-
       throw new BadRequestError('Invalid fields');
     }
 
     const id: number = value.id;
 
-    console.log('value', value);
-
     const status = await deleteAlbumService(id);
-    console.log('status', status);
-
     if (status !== 200) throw new ApiError(status, `Couldn't delete`);
 
-    console.log('ate o fim');
     res.status(200).send({ id });
   } catch (error) {
-    console.log('Error:', error);
     next(error);
   }
 };

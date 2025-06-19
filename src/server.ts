@@ -17,10 +17,6 @@ app.use(
 
 app.use(express.json({ limit: '10mb' }));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-  console.log('Response sent');
-});
 app.use('/users', userRoutes);
 app.use('/albums', albumRoutes);
 app.use('/photos', photoRoutes);
