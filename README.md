@@ -14,21 +14,23 @@ BFF that uses https://jsonplaceholder.typicode.com/ as a Backend for technical a
 **Install:**
 
 1.  Clone the repository:
-    ```bash
-    git clone https://github.com/LeandroOliveiraDeQueiroz/albums-backend.git
-    cd albums-backend
-    ```
+   
+```bash
+git clone https://github.com/LeandroOliveiraDeQueiroz/albums-backend.git
+cd albums-backend
+```
 2.  Install node modules:
-    ```
-    npm install
-    ```
 
+```
+npm install
+```
 **Exec.:**
 
-- To run the project in development:
-  ```bash
-  npm run dev
-  ```
+1. To run the project in development:
+
+```bash
+npm run dev
+```
 
 ## jsonplaceholder bug
 - Every create an Album request, "generates" the id 101 - can cause problems at React keys
