@@ -8,10 +8,10 @@ import { errorHandler } from './middlewares/errorHandler';
 const app = express();
 const PORT = '3000';
 
-//TODO configure CORS accept correctly domains
+//TODO create .env
 app.use(
   cors({
-    origin: '*',
+    origin: 'http://localhost:5173',
   }),
 );
 
